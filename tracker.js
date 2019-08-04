@@ -19,22 +19,7 @@ function ipLookUp () {
       }
     }
     alert("Are you from "+closest[0]+"?");
-  })
-}
-
-function getAddress (latitude, longitude) {
-  $.ajax('https://maps.googleapis.com/maps/api/geocode/json?' +
-          'latlng=' + latitude + ',' + longitude + '&key=' +
-          GOOGLE_MAP_KEY)
-  .then(
-    function success (response) {
-      console.log('User\'s Address Data is ', response)
-    },
-    function fail (status) {
-      console.log('Request failed.  Returned status of',
-                  status)
-    }
-   )
+  });
 }
 
 ipLookUp();
