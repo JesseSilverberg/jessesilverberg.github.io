@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">  
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="Jesse Silverberg">
+        <title> {% if page.title != "Home" %}{{ page.title }} | {% endif %} {{ site.title }}</title>
+
+        {% feed_meta %}
+        {% seo %}
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+        <link id="favicon" rel="shortcut icon" href="please accept me.ico">
+        <link href="css/style.css" rel="stylesheet">
+
+        <script src="https://kit.fontawesome.com/11bff94181.js"></script>
+        
+  </head>
+    
+    <body>
+        <header class="masthead mb-auto mx-auto py-3 px-5">
+            <div class="inner">
+                <a href="/"><h3 class="masthead-brand">Jesse Silverberg</h3></a>
+                <nav class="nav nav-masthead justify-content-center">
+                    {% for item in site.data.navigation %}
+                        <a href="{{ item.link }}" class="nav-link {% if page.url == item.link %}active{% endif %}">
+                            {{ item.name }}
+                        </a>
+                    {% endfor %}
+                    <a href="https://github.com/jessesilverberg" target="_blank"><i class="fab fa-lg fa-github"></i></a>
+                    <a href="mailto:jessesilverberg11@gmail.com"><i class="fas fa-lg fa-envelope"></i></a>
+                </nav>
+            </div>
+        </header>
+
+        <main role="main">
+            {{content}}
+        </main>
+        
+        <!-- FOOTER -->
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; 2019 Jesse Silverberg &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+        </footer>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script src="tracker.js"></script>
+    </body>
+</html>

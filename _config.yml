@@ -1,1 +1,7 @@
-theme: jekyll-theme-cayman
+name: Jesse Silverberg
+title: Jesse Silverberg
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
