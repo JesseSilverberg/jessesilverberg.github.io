@@ -45,7 +45,7 @@ function no() {
 function schoolStyle() {
     var schoolName=sessionStorage.getItem("school");
     var favicon = document.getElementById('favicon');
-    favicon.href = "img/"+schoolName + ".ico";
+    favicon.href = "/img/"+schoolName + ".ico";
     if (schoolName==="UMD"){
         $(document.body).css("--primary-color", "#E71036");
         $(document.body).css("--primary-text", "#fff");
