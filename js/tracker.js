@@ -10,6 +10,7 @@ function ipLookUp() {
     ["Princeton" ,40.343135 ,-74.654945],
     ["Carnegie Mellon", 40.442947 ,-79.942820],
     ["UMD", 38.986993 ,-76.942565],
+    ["Case Western", 41.504313, -81.608502],
     ["MIT", 42.360162, -71.094203]];
 
     closest=schools[0];
@@ -67,6 +68,10 @@ function schoolStyle() {
         $(document.body).css("--primary-color", "#DB0022");
         $(document.body).css("--primary-text", "#fff");
         $(document.body).css("--secondary-color", "#9C0009");
+    } else if (schoolName==="Case Western"){
+        $(document.body).css("--primary-color", "#06314C");
+        $(document.body).css("--primary-text", "#fff");
+        $(document.body).css("--secondary-color", "#20465E");
     } else if (schoolName==="Princeton"){
         $(document.body).css("--primary-color", "#EA7228");
         $(document.body).css("--primary-text", "#fff");
