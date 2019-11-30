@@ -1,5 +1,14 @@
 name: Jesse Silverberg
 title: Jesse Silverberg
+description: Jesse Silverberg is a Washington, D.C. based musician and computer science enthusiast. 
+url: https://jessesilverberg.com
+repository: https://github.com/jessesilverberg/jessesilverberg.github.io
+google_analytics_id: UA-149872984-1
+logo: "/img/profile.ico"
+social:
+  name: Jesse Silverberg
+  links:
+    - https://github.com/jessesilverberg
 
 plugins:
   - jekyll-feed
