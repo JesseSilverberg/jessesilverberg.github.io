@@ -9,5 +9,5 @@ $(window).on('resize scroll', function() {
 });
 $("video").click( function (){
       $(this).prop('muted', !$(this).prop('muted'));
-      $(this).closest('div').children('.overlay').toggleClass('d-none');
+      $(this).closest('div').children('.overlay').toggleClass('hidden');
   });
