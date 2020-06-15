@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">  
+<html lang="en">
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,10 +10,11 @@
         {% feed_meta %}
         {% seo %}
         <!-- Bootstrap core CSS -->
-        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
+        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+        <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link id="favicon" rel="shortcut icon" href="{{'img/profile.ico' | relative_url }}">
-        <link href="{{'css/style.css' | relative_url }}" rel="stylesheet">
+        <!-- <link href="{{'css/style.css' | relative_url }}" rel="stylesheet"> -->
+        <link rel="stylesheet" href="{{ site.data.manifest['docs.css'] | relative_url }}">
 
         <script src="https://kit.fontawesome.com/11bff94181.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
@@ -25,38 +26,83 @@
 
           gtag('config', 'UA-149872984-1');
         </script>
-
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.js" defer></script>
 
   </head>
-    
-    <body>
-        <header class="masthead mb-auto mx-auto py-3 px-5">
-            <div class="inner">
-                <a href="/"><h3 class="masthead-brand">Jesse Silverberg</h3></a>
-                <nav class="nav nav-masthead justify-content-center">
-                    {% for item in site.data.navigation %}
-                        <a href="{{ item.link }}" class="nav-link {% if page.url == item.link %}active{% endif %}">
-                            {{ item.name }}
-                        </a>
-                    {% endfor %}
-                    <a href="https://github.com/jessesilverberg" target="_blank"><i class="fab fa-lg fa-github"></i></a>
-                    <a href="mailto:jessesilverberg11@gmail.com"><i class="fas fa-lg fa-envelope"></i></a>
-                </nav>
-            </div>
-        </header>
 
-        <main role="main">
-            {{content}}
-        </main>
-        
+    <body class="antialiased font-sans">
+            <div x-data="{ open: false }" class="relative bg-white overflow-hidden">
+ <!-- <div class="max-w-screen-xl mx-auto "> -->
+
+                     <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
+                       <nav class="relative flex items-center justify-between sm:h-10">
+                         <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
+                           <div class="flex items-center justify-between w-full md:w-auto">
+                             <a href="/" aria-label="Home"> <span class="h-8 w-auto sm:h-10 font-bold text-3xl lg:text-4xl text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out" >Jesse Silverberg</span> </a>
+                             <div class="-mr-2 flex items-center md:hidden">
+                               <button @click="open = true" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" id="main-menu" aria-label="Main menu" aria-haspopup="true" x-bind:aria-expanded="open">
+                                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /> </svg>
+                               </button>
+                             </div>
+                           </div>
+                         </div>
+                         <div class="hidden md:flex md:ml-10 md:pr-4">
+                           {% for item in site.data.navigation %}
+                              <a href="{{ item.link }}" class="{% if page.url == item.link %}active{% endif %} text-lg lg:text-xl ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">{{ item.name }} </a>
+                           {% endfor %}
+                           <!-- <a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Product </a>
+                           <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features </a>
+                           <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Marketplace </a>
+                           <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Company </a> -->
+                           <a href="https://github.com/jessesilverberg" target="_blank" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"><i class="fab fa-lg fa-github"></i></a>
+                           <a href="mailto:jessesilverberg11@gmail.com" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"><i class="fas fa-lg fa-envelope"></i></a>
+                           <!-- <a href="#" class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 transition duration-150 ease-in-out">Log in </a> -->
+                         </div>
+                       </nav>
+                     </div>
+                     <div x-show="open" x-description="Mobile menu, show/hide based on menu open state." x-transition:enter="duration-150 ease-out" x-transition:enter-start="opacity-0 scale-95" x-transition:enter-end="opacity-100 scale-100" x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-20 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden">
+                       <div class="rounded-lg shadow-md">
+                          <div class="rounded-lg bg-white shadow-xs overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
+                            <div class="px-5 pt-4 flex items-center justify-between">
+                              <div> <a href="/" class="h-8 w-auto font-bold text-3xl text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"> Jesse Silverberg</a></div>
+                              <div class="-mr-2">
+                                <button @click="open = false" type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Close menu">
+                                  <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /> </svg>
+                                </button>
+                              </div>
+                            </div>
+                            <div class="px-2 pt-2 pb-3">
+                              {% for item in site.data.navigation %}
+                                <a href="{{ item.link }}" class="{% if page.url == item.link %}active{% endif %} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">{{ item.name }} </a>
+                              {% endfor %}
+                              <!-- <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Product </a>
+                              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Features </a>
+                              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Marketplace </a>
+                              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Company </a> -->
+                            </div>
+                            <div class="block w-full px-5 py-3 text-center text-xl">
+                              <!-- <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"> Log in </a> -->
+                              <a href="https://github.com/jessesilverberg" target="_blank" class=" px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"><i class="fab fa-lg fa-github"></i></a>
+                              <a href="mailto:jessesilverberg11@gmail.com" class=" px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"><i class="fas fa-lg fa-envelope"></i></a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <main role="main">
+                          {{content}}
+                      </main>
+
+
+
+                </div>
+
+
         <!-- FOOTER -->
-        <footer class="container">
-            <p class="float-right"><a href="#">Back to top</a></p>
+        <footer class="text-center text-gray-700 py-8">
             <p><i class="far fa-copyright"></i> <script>document.write(new Date().getFullYear())</script> Jesse Silverberg </p>
         </footer>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
         <script src="{{'js/jquery.visible.min.js' | relative_url }}"></script>
         <script src="{{'js/tracker.js' | relative_url }}"></script>
     </body>
