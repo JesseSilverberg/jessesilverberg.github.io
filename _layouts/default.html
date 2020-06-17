@@ -3,20 +3,18 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
         <meta name="author" content="Jesse Silverberg">
         <title> {% if page.title != "Home" %}{{ page.title }} | {% endif %} {{ site.title }}</title>
 
         {% feed_meta %}
         {% seo %}
-        <!-- Bootstrap core CSS -->
-        <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+
         <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
         <link id="favicon" rel="shortcut icon" href="{{'img/profile.ico' | relative_url }}">
-        <!-- <link href="{{'css/style.css' | relative_url }}" rel="stylesheet"> -->
         <link rel="stylesheet" href="{{ site.data.manifest['docs.css'] | relative_url }}">
 
         <script src="https://kit.fontawesome.com/11bff94181.js"></script>
+
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149872984-1"></script>
         <script>
@@ -32,7 +30,6 @@
 
     <body class="antialiased font-sans">
             <div x-data="{ open: false }" class="relative bg-white overflow-hidden">
- <!-- <div class="max-w-screen-xl mx-auto "> -->
 
                      <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
                        <nav class="relative flex items-center justify-between sm:h-10">
@@ -50,13 +47,8 @@
                            {% for item in site.data.navigation %}
                               <a href="{{ item.link }}" class="{% if page.url == item.link %}active{% endif %} text-lg lg:text-xl ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">{{ item.name }} </a>
                            {% endfor %}
-                           <!-- <a href="#" class="font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Product </a>
-                           <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Features </a>
-                           <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Marketplace </a>
-                           <a href="#" class="ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">Company </a> -->
-                           <a href="https://github.com/jessesilverberg" target="_blank" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"><i class="fab fa-lg fa-github"></i></a>
+                           <a href="https://github.com/jessesilverberg" target="_blank" rel="noopener" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"><i class="fab fa-lg fa-github"></i></a>
                            <a href="mailto:jessesilverberg11@gmail.com" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"><i class="fas fa-lg fa-envelope"></i></a>
-                           <!-- <a href="#" class="ml-8 font-medium text-indigo-600 hover:text-indigo-900 transition duration-150 ease-in-out">Log in </a> -->
                          </div>
                        </nav>
                      </div>
@@ -75,14 +67,9 @@
                               {% for item in site.data.navigation %}
                                 <a href="{{ item.link }}" class="{% if page.url == item.link %}active{% endif %} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">{{ item.name }} </a>
                               {% endfor %}
-                              <!-- <a href="#" class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Product </a>
-                              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Features </a>
-                              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Marketplace </a>
-                              <a href="#" class="mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out" role="menuitem">Company </a> -->
                             </div>
                             <div class="block w-full px-5 py-3 text-center text-xl">
-                              <!-- <a href="#" class="block w-full px-5 py-3 text-center font-medium text-indigo-600 bg-gray-50 hover:bg-gray-100 hover:text-indigo-700 focus:outline-none focus:bg-gray-100 focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"> Log in </a> -->
-                              <a href="https://github.com/jessesilverberg" target="_blank" class=" px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"><i class="fab fa-lg fa-github"></i></a>
+                              <a href="https://github.com/jessesilverberg" target="_blank" rel="noopener" class=" px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"><i class="fab fa-lg fa-github"></i></a>
                               <a href="mailto:jessesilverberg11@gmail.com" class=" px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem"><i class="fas fa-lg fa-envelope"></i></a>
                             </div>
                           </div>
@@ -93,12 +80,9 @@
                           {{content}}
                       </main>
 
-
-
                 </div>
 
 
-        <!-- FOOTER -->
         <footer class="text-center text-gray-700 py-8">
             <p><i class="far fa-copyright"></i> <script>document.write(new Date().getFullYear())</script> Jesse Silverberg </p>
         </footer>
