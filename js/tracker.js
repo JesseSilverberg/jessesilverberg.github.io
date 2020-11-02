@@ -1,4 +1,4 @@
-$(window).on('resize scroll', function() {
+$(window).on('load resize scroll', function() {
     $('video').each(function(){
         if ($(this).visible()) {
             $(this)[0].play();
