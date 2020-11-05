@@ -1,5 +1,6 @@
 document.querySelectorAll('.video-overlay').forEach(item => {
   item.querySelector('video').addEventListener('canplay', event => {
+    console.log('hi');
     item.querySelector('.overlay').classList.remove("hidden");
     item.addEventListener('click', event => {
       item.querySelector('video').muted = !item.querySelector('video').muted;
