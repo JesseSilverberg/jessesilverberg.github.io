@@ -6,8 +6,8 @@ function videoMute(v) {
   });
 }
 
-document.querySelectorAll('.video-overlay').forEach(item => {  
-  if (item.querySelector('video') > 3) {
+document.querySelectorAll('.video-overlay').forEach(item => {
+  if (item.querySelector('video').readyState > 3) {
     videoMute(item);
   } else {
     item.querySelector('video').addEventListener('canplay', event => {
