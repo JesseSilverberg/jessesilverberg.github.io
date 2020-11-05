@@ -1,12 +1,19 @@
-document.querySelectorAll('.video-overlay').forEach(item => {
-  item.querySelector('video').addEventListener('canplay', event => {
-    console.log('hi');
-    item.querySelector('.overlay').classList.remove("hidden");
-    item.addEventListener('click', event => {
-      item.querySelector('video').muted = !item.querySelector('video').muted;
-      item.querySelector('.overlay').classList.toggle("hidden");
-    });
+function videoMute(v) {
+  v.querySelector('.overlay').classList.remove("hidden");
+  v.addEventListener('click', event => {
+    v.querySelector('video').muted = !v.querySelector('video').muted;
+    v.querySelector('.overlay').classList.toggle("hidden");
   });
+}
+
+document.querySelectorAll('.video-overlay').forEach(item => {  
+  if (item.querySelector('video') > 3) {
+    videoMute(item);
+  } else {
+    item.querySelector('video').addEventListener('canplay', event => {
+      videoMute(item);
+    });
+  }
 });
 
 var observer = new IntersectionObserver(function(entries) {
