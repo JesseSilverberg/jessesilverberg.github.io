@@ -10,7 +10,7 @@ document.querySelectorAll('.video-overlay').forEach(item => {
   if (item.querySelector('video').readyState > 3) {
     videoMute(item);
   } else {
-    item.querySelector('video').addEventListener('canplaythrough', event => {
+    item.querySelector('video').addEventListener('canplay', event => {
       videoMute(item);
     });
   }
