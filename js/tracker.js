@@ -24,6 +24,8 @@ var observer = new IntersectionObserver(function(entries) {
       entry.target.pause();
     }
   });
-}, {threshold: [0, 1]});
+}, {
+  threshold: [0, 1]
+});
 
 document.querySelectorAll("video").forEach(vid => observer.observe(vid));
