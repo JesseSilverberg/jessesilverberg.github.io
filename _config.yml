@@ -19,6 +19,10 @@ defaults:
       path: ""
     values:
       layout: "default"
+  - scope:
+      path: "img/*.pdf"
+    values:
+      sitemap: false
 
 exclude:
   - "*.config.js"
