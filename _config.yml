@@ -20,7 +20,7 @@ defaults:
     values:
       layout: "default"
   - scope:
-      path: "img/*.pdf"
+      path: "img"
     values:
       sitemap: false
 
