@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" class='preload'>
 
 <head>
   <meta charset="utf-8">
@@ -27,8 +27,8 @@
       localStorage.theme = 'light';
     }
     applyTheme();
-    document.addEventListener("DOMContentLoaded", function(){
-        document.body.classList.remove("preload");
+    document.addEventListener("DOMContentLoaded", function() {
+      document.documentElement.classList.remove("preload");
     });
   </script>
 
@@ -58,7 +58,7 @@
 
 </head>
 
-<body class="antialiased font-sans bg-white dark:bg-black preload">
+<body class="antialiased font-sans bg-white dark:bg-black">
 
   <div x-data="{ open: false }" class="relative bg-white dark:bg-black overflow-hidden">
 
@@ -145,33 +145,26 @@
       {{content}}
     </main>
 
-    <!-- <div class="switch">
-      <input id="darkToggle" type="checkbox" class="switch-input" onchange='toggleDark(this)' />
-      <label for="darkToggle" class="switch-label">Switch</label>
-    </div> -->
+    <div id='toggles' class='float-right mx-8 my-6 flex gap-8'>
+      <div>
+        <input id="darkToggle" type="checkbox" class="switch" onchange='toggleDark(this)'>
+      </div>
+    </div>
 
-<div id='toggles' class='float-right mx-8 my-6 flex gap-8'>
-  <div>
-    <input id="darkToggle" type="checkbox" class="switch" onchange='toggleDark(this)'>
   </div>
-    <!-- <label for="darkToggle">Switch</label> -->
-</div>
-    <script>
-      document.getElementById("darkToggle").checked = localStorage.theme === 'dark';
+  <script>
+    document.getElementById("darkToggle").checked = localStorage.theme === 'dark';
 
 
-      function toggleDark(e) {
-        if (e.checked) {
-          localStorage.theme = 'dark';
-        } else {
-          localStorage.theme = 'light';
-        }
-        applyTheme();
+    function toggleDark(e) {
+      if (e.checked) {
+        localStorage.theme = 'dark';
+      } else {
+        localStorage.theme = 'light';
       }
-    </script>
-
-
-  </div>
+      applyTheme();
+    }
+  </script>
 </body>
 
 </html>
