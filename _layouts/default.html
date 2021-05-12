@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="color-scheme" content="dark light">
   <meta name="author" content="Jesse Silverberg">
   <title> {% if page.title != "Home" %}{{ page.title }} | {% endif %} {{ site.title }}</title>
 
@@ -33,20 +34,37 @@
   </script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.js" defer></script>
 
+  <script>
+    function applyTheme() {
+      if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    }
+
+    if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.theme = 'dark';
+    } else if (!('theme' in localStorage)) {
+      localStorage.theme = 'light';
+    }
+    applyTheme();
+  </script>
+
 </head>
 
-<body class="antialiased font-sans">
-  <div x-data="{ open: false }" class="relative bg-white overflow-hidden">
+<body class="antialiased font-sans bg-white dark:bg-black">
+  <div x-data="{ open: false }" class="relative bg-white dark:bg-black overflow-hidden">
 
     <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
       <nav class="relative flex items-center justify-between sm:h-10">
         <div class="flex items-center flex-grow flex-shrink-0 lg:flex-grow-0">
           <div class="flex items-center justify-between w-full md:w-auto">
-            <a href="/" aria-label="Home"> <span class="h-8 w-auto sm:h-10 font-bold text-3xl lg:text-4xl text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out">Jesse Silverberg</span> </a>
+            <a href="/" aria-label="Home"> <span class="h-8 w-auto sm:h-10 font-bold text-3xl lg:text-4xl text-indigo-500 hover:text-indigo-700 transition duration-150 ease-in-out">Jesse Silverberg</span> </a>
             <div class="-mr-2 flex items-center md:hidden">
               <button @click="open = true" type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" id="main-menu"
-                aria-label="Main menu" aria-haspopup="true" x-bind:aria-expanded="open">
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:hover:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                id="main-menu" aria-label="Main menu" aria-haspopup="true" x-bind:aria-expanded="open">
                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" /> </svg>
               </button>
@@ -55,9 +73,9 @@
         </div>
         <div class="hidden md:flex md:ml-10 md:pr-4">
           {% for item in site.data.navigation %}
-          <a href="{{ item.link }}" class="{% if page.url == item.link %}active{% endif %} text-lg lg:text-xl ml-8 font-medium text-gray-500 hover:text-gray-900 transition duration-150 ease-in-out">{{ item.name }} </a>
+          <a href="{{ item.link }}" class="{% if page.url == item.link %}active{% endif %} text-lg lg:text-xl ml-8 font-medium text-gray-400 hover:text-gray-900 dark:hover:text-gray-200 transition duration-150 ease-in-out">{{ item.name }} </a>
           {% endfor %}
-          <a href="https://github.com/jessesilverberg" target="_blank" rel="noopener" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out">
+          <a href="https://github.com/jessesilverberg" target="_blank" rel="noopener" class="text-xl ml-8 font-medium text-indigo-500 hover:text-indigo-700 transition duration-150 ease-in-out">
             <svg class="fill-current h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <title>GitHub</title>
               <path
@@ -65,7 +83,7 @@
               </path>
             </svg>
           </a>
-          <a href="mailto:jessesilverberg11@gmail.com" class="text-xl ml-8 font-medium text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out">
+          <a href="mailto:jsilverberg@rcn.com" class="text-xl ml-8 font-medium text-indigo-500 hover:text-indigo-700 transition duration-150 ease-in-out">
             <svg class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
               <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
               <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -78,12 +96,13 @@
       x-transition:leave="duration-100 ease-in" x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95" class="absolute z-20 top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
       style='display:none;'>
       <div class="rounded-lg shadow-md">
-        <div class="rounded-lg bg-white shadow-xs overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
+        <div class="rounded-lg bg-white dark:bg-gray-900 ring-1 ring-black ring-opacity-5 overflow-hidden" role="menu" aria-orientation="vertical" aria-labelledby="main-menu">
           <div class="px-5 pt-4 flex items-center justify-between">
-            <div> <a href="/" class="h-8 w-auto font-bold text-3xl text-indigo-600 hover:text-indigo-700 transition duration-150 ease-in-out"> Jesse Silverberg</a></div>
+            <div> <a href="/" class="h-8 w-auto font-bold text-3xl text-indigo-500 hover:text-indigo-700 transition duration-150 ease-in-out"> Jesse Silverberg</a></div>
             <div class="-mr-2">
               <button @click="open = false" type="button"
-                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out" aria-label="Close menu">
+                class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 dark:hover:text-gray-300  hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out"
+                aria-label="Close menu">
                 <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /> </svg>
               </button>
@@ -92,13 +111,12 @@
           <div class="px-2 pt-2 pb-3">
             {% for item in site.data.navigation %}
             <a href="{{ item.link }}"
-              class="{% if page.url == item.link %}active{% endif %} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
+              class="{% if page.url == item.link %}active{% endif %} mt-1 block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:text-gray-900 focus:bg-gray-50 transition duration-150 ease-in-out"
               role="menuitem">{{ item.name }} </a>
             {% endfor %}
           </div>
           <div class="flex justify-center w-full px-5 py-3 text-center text-xl">
-            <a href="https://github.com/jessesilverberg" target="_blank" rel="noopener" class="px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out"
-              role="menuitem">
+            <a href="https://github.com/jessesilverberg" target="_blank" rel="noopener" class="px-3 font-medium text-indigo-500 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem">
               <svg class="fill-current h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                 <title>GitHub</title>
                 <path
@@ -106,7 +124,7 @@
                 </path>
               </svg>
             </a>
-            <a href="mailto:jessesilverberg11@gmail.com" class="px-3 font-medium text-indigo-600 bg-gray-50 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem">
+            <a href="mailto:jsilverberg@rcn.com" class="px-3 font-medium text-indigo-500 hover:text-indigo-700 focus:outline-none focus:text-indigo-700 transition duration-150 ease-in-out" role="menuitem">
               <svg class="h-8" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
                 <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                 <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
@@ -120,6 +138,32 @@
     <main role="main">
       {{content}}
     </main>
+
+    <!-- <div class="switch">
+      <input id="darkToggle" type="checkbox" class="switch-input" onchange='toggleDark(this)' />
+      <label for="darkToggle" class="switch-label">Switch</label>
+    </div> -->
+
+<div id='toggles' class='float-right mx-8 my-6 flex gap-8'>
+  <div>
+    <input id="darkToggle" type="checkbox" class="switch" onchange='toggleDark(this)'>
+  </div>
+    <!-- <label for="darkToggle">Switch</label> -->
+</div>
+    <script>
+      document.getElementById("darkToggle").checked = localStorage.theme === 'dark';
+
+
+      function toggleDark(e) {
+        if (e.checked) {
+          localStorage.theme = 'dark';
+        } else {
+          localStorage.theme = 'light';
+        }
+        applyTheme();
+      }
+    </script>
+
 
   </div>
 </body>

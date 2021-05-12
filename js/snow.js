@@ -28,7 +28,7 @@ if (now.getMonth() === 11) {
   `;
 
 
-  document.body.appendChild(toggle);
+  document.getElementById('toggles').insertBefore(toggle,document.getElementById('toggles').childNodes[0]);
 
   var styleEl = document.createElement('style');
   styleEl.innerText = `
@@ -67,17 +67,10 @@ if (now.getMonth() === 11) {
 
   @charset "UTF-8";
   .snow-toggle {
-    float: right;
     position: relative;
     width: 4rem;
-    margin: 2rem;
   }
 
-  @media (min-width: 768px) {
-    .snow-toggle {
-        margin-right: 3rem;
-    }
-  }
 
   .snow-toggle .well {
     display: block;

@@ -3,40 +3,39 @@ title: Music
 layout: default
 ---
 
-<div class="mx-6 sm:mx-12 xl:mx-20">
+<div class="music mx-6 sm:mx-12 xl:mx-20">
 
-  <div class="lg:flex py-20 xl:py-32">
-    <div class="w-full lg:w-5/12 lg:pr-8 pb-8 lg:pb-0 xl:pt-10">
-      <h2 class="text-4xl tracking-tight font-medium leading-loose text-indigo-600 sm:text-5xl md:text-6xl">Orchestra</h2>
-      <p class="text-gray-700 text-xl leading-relaxed">American Youth Philharmonic (principal), Potomac Valley Youth Orchestra (principal), Interlochen Arts Camp Orchestra and Wind Ensemble (principal), Philadelphia International Music Festival.
+  <div class="music-item py-20 xl:py-32">
+    <div class="item-text lg:pr-8">
+      <h2 class='item-header'>Orchestra</h2>
+      <p class="item-desc">American Youth Philharmonic (principal), Potomac Valley Youth Orchestra (principal), Interlochen Arts Camp Orchestra and Wind Ensemble (principal), Philadelphia International Music Festival.
         Masterclasses include Jason Ayoub, principal horn of the U.S. Navy Band. </p>
     </div>
-    <div class="relative w-full lg:w-7/12 flex flex-col text-center justify-center video-overlay">
-      <p class="overlay absolute w-full text-gray-100 text-5xl font-medium hidden" style="text-shadow: 0 0 10px #000000;">Click for Audio</p>
-      <video preload playsinline poster loop muted="true" class="w-full">
+    <div class="video-overlay">
+      <p class="overlay">Click for Audio</p>
+      <video preload playsinline poster loop muted="true">
         <source src="{% link img/bocaccio.mp4 %}" />
       </video>
     </div>
   </div>
 
-  <div class="lg:flex">
-    <div class="w-full lg:w-5/12 lg:pl-8 pb-8 lg:pb-0 xl:pt-10 lg:text-right lg:order-last">
-      <h2 class="text-4xl tracking-tight font-medium leading-loose text-indigo-600 sm:text-5xl md:text-6xl">Jazz</h2>
-      <p class="text-gray-700 text-xl leading-relaxed">Pianist with the Paul Carr Jazz Academy Orchestra. Performances include the Kennedy Center, Blues Alley, Bethesda Blues and Jazz Supper Club, DC Jazz Festival, Big Band Jam, Mid-Atlantic Jazz
+  <div class="music-item">
+    <div class="item-text lg:pl-8 lg:text-right lg:order-last">
+      <h2 class="item-header">Jazz</h2>
+      <p class="item-desc">Pianist with the Paul Carr Jazz Academy Orchestra. Performances include the Kennedy Center, Blues Alley, Bethesda Blues and Jazz Supper Club, DC Jazz Festival, Big Band Jam, Mid-Atlantic Jazz
         Festival, Rehoboth Beach Jazz Festival, and Georgetown Jazz Festival. Has performed with Terell Stafford, Brian Lynch, Carmen Bradford, and Sharon Clark.</p>
     </div>
-    <div class="relative w-full lg:w-7/12 flex flex-col text-center justify-center video-overlay">
-      <p class="overlay absolute w-full text-gray-100 text-5xl font-medium hidden" style="text-shadow: 0 0 10px #000000;">Click for Audio</p>
-      <video preload playsinline poster loop muted="true" class="w-full">
+    <div class="video-overlay">
+      <p class="overlay">Click for Audio</p>
+      <video preload playsinline poster loop muted="true">
         <source src="{% link img/ithappened.mp4 %}" />
       </video>
     </div>
   </div>
 
   <div class="mt-16 md:mt-24 lg:mt-32 mb-12 md:mb-20 lg:mb-24 flex justify-center">
-    <div class="rounded-md shadow">
-      <a href="{% link /img/Music_Resume.pdf %}" target="_blank"
-        class="flex items-center justify-center px-8 py-3 border border-transparent text-lg leading-6 font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-500 focus:outline-none focus:border-indigo-700 focus:shadow-outline-indigo transition duration-150 ease-in-out md:py-4 md:text-xl md:px-10">
+    <div class="button">
+      <a href="{% link /img/Music_Resume.pdf %}" target="_blank">
         Resume/CV </a>
     </div>
   </div>

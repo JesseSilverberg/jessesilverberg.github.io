@@ -5,18 +5,18 @@ layout: default
 
 
 
-<div class="relative bg-white overflow-hidden mt-5">
+<div class="index relative bg-white dark:bg-black overflow-hidden mt-5">
 
   <div class="mx-auto">
-    <div class="relative z-10 bg-white lg:w-1/2 lg:pb-6">
-      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 text-white transform translate-x-1/2" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
-        <polygon points="50,0 100,0 50,100 0,100" /> </svg>
+    <div class="relative z-10 bg-white dark:bg-black text-white dark:text-black lg:w-1/2 lg:pb-6">
+      <svg class="hidden lg:block absolute right-0 inset-y-0 h-full w-48 transform translate-x-1/2 transition-none" fill="currentColor" viewBox="0 0 100 100" preserveAspectRatio="none">
+        <polygon points="50,0 100,0 50,100 0,100" class='transition-none' /> </svg>
 
-      <div class="pb-32 pt-10 mx-auto max-w-screen-xl px-8 sm:px-16 sm:pt-12 md:pt-16 lg:px-12 lg:pt-32 lg:pb-48 xl:px-16 xl:pt-32">
-        <div class="text-6xl md:text-7xl tracking-wide leading-10 font-semibold text-gray-900 sm:leading-none">
-          <h2 style="text-shadow: 1px 1px #7F9CF5, 2px 2px #7F9CF5, 3px 2px #7F9CF5;"> AI </h2>
-          <h2 class="my-20 sm:text-right" style="text-shadow: 1px 1px #7F9CF5, 2px 2px #7F9CF5, 3px 2px #7F9CF5;"> Statistics </h2>
-          <h2 style="text-shadow: 1px 1px #7F9CF5, 2px 2px #7F9CF5, 3px 2px #7F9CF5;"> Music </h2>
+      <div class="hero pb-32 pt-10 mx-auto max-w-screen-xl px-8 sm:px-16 sm:pt-12 md:pt-16 lg:px-12 lg:pt-32 lg:pb-40 xl:px-16 xl:pt-32">
+        <div class="text-6xl md:text-7xl xl:text-8xl tracking-wide leading-10 font-semibold text-gray-900 dark:text-gray-300 sm:leading-none">
+          <h2> AI </h2>
+          <h2 class="my-20 sm:text-right"> Statistics </h2>
+          <h2> Music </h2>
 
         </div>
       </div>
@@ -28,4 +28,4 @@ layout: default
   </div>
 </div>
 
-<script src="{% link js/snow.js %}"></script>
+<script defer src="{% link js/snow.js %}"></script>
