@@ -11,6 +11,24 @@
   {% feed_meta %}
   {% seo %}
 
+
+  <script>
+    function applyTheme() {
+      if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    }
+
+    if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.theme = 'dark';
+    } else if (!('theme' in localStorage)) {
+      localStorage.theme = 'light';
+    }
+    applyTheme();
+  </script>
+
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="{{ site.data.manifest['docs.css'] | relative_url }}">
 
@@ -34,22 +52,6 @@
   </script>
   <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.3.5/dist/alpine.js" defer></script>
 
-  <script>
-    function applyTheme() {
-      if (localStorage.theme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    }
-
-    if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      localStorage.theme = 'dark';
-    } else if (!('theme' in localStorage)) {
-      localStorage.theme = 'light';
-    }
-    applyTheme();
-  </script>
 
 </head>
 
