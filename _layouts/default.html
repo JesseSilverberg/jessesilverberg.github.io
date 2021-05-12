@@ -12,25 +12,7 @@
   {% seo %}
 
 
-  <script>
-    function applyTheme() {
-      if (localStorage.theme === 'dark') {
-        document.documentElement.classList.add('dark')
-      } else {
-        document.documentElement.classList.remove('dark')
-      }
-    }
 
-    if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-      localStorage.theme = 'dark';
-    } else if (!('theme' in localStorage)) {
-      localStorage.theme = 'light';
-    }
-    applyTheme();
-    document.addEventListener("DOMContentLoaded", function(){
-        document.body.classList.remove("preload");
-    });
-  </script>
 
   <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
   <link rel="stylesheet" href="{{ site.data.manifest['docs.css'] | relative_url }}">
@@ -59,6 +41,25 @@
 </head>
 
 <body class="antialiased font-sans bg-white dark:bg-black preload">
+  <script>
+    function applyTheme() {
+      if (localStorage.theme === 'dark') {
+        document.documentElement.classList.add('dark')
+      } else {
+        document.documentElement.classList.remove('dark')
+      }
+    }
+
+    if (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      localStorage.theme = 'dark';
+    } else if (!('theme' in localStorage)) {
+      localStorage.theme = 'light';
+    }
+    applyTheme();
+    document.addEventListener("DOMContentLoaded", function(){
+        document.body.classList.remove("preload");
+    });
+  </script>
   <div x-data="{ open: false }" class="relative bg-white dark:bg-black overflow-hidden">
 
     <div class="relative pt-6 px-4 sm:px-6 lg:px-8">
