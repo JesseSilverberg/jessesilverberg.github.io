@@ -24,7 +24,7 @@
 }
 
 * {
-  transition: all 0.25s linear;
+  transition: background-color 0.25s linear, color 0.25s linear;
 }
 
 .preload * {
