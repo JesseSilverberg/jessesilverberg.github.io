@@ -23,14 +23,6 @@
   @apply bg-indigo-400 bg-opacity-50;
 }
 
-* {
-  transition: background-color 0.25s linear, color 0.25s linear;
-}
-
-.preload * {
-  transition: none;
-}
-
 
 .button {
   @apply rounded-md shadow;
@@ -156,7 +148,7 @@
 }
 
 .music .music-item .video-overlay .overlay {
-  @apply absolute w-full text-gray-100 text-5xl font-medium hidden;
+  @apply absolute w-full text-gray-100 text-5xl font-medium;
   text-shadow: 0 0 10px #000000;
 }
 
