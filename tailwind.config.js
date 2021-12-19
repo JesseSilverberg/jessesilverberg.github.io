@@ -2,8 +2,12 @@ const defaultConfig = require('tailwindcss/defaultConfig')
 const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-  darkMode: 'media',
-  purge: [],
+  content: [
+    './_includes/**/*.html',
+    './_layouts/**/*.html',
+    './_posts/*.md',
+    './*.html',
+  ],
   theme: {
     extend: {
       fontFamily: {
@@ -12,6 +16,5 @@ module.exports = {
       },
     },
   },
-  variants: {},
   plugins: [],
 }
