@@ -29,6 +29,7 @@ if (now.getMonth() === 11) {
 
 
   document.getElementById('toggles').insertBefore(toggle,document.getElementById('toggles').childNodes[0]);
+  document.getElementById('toggles').classList.add('float-right', 'mx-8', 'my-6', 'flex', 'gap-8');
 
   var styleEl = document.createElement('style');
   styleEl.innerText = `

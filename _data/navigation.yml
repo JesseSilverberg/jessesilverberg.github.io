@@ -1,6 +1,4 @@
 - name: Home
   link: /
-- name: Academic
-  link: /academic/
-- name: Music
-  link: /music/
+- name: Research
+  link: /research/
