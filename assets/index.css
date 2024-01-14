@@ -128,6 +128,27 @@
 }
 
 
+.publications .pub {
+  @apply my-4 sm:my-6 md:my-8;
+}
+
+.publications a {
+  @apply text-blue-500 font-medium hover:underline hover:text-blue-600 transition duration-150 ease-in-out;
+}
+
+.publications .pub .pub-title {
+  @apply text-2xl mb-3;
+}
+
+.publications .pub .pub-authors {
+  @apply text-lg;
+}
+
+.publications .pub .pub-authors .self-author {
+  @apply font-bold dark:font-extrabold;
+}
+
+
 .music .music-item {
   @apply lg:flex;
 }
