@@ -116,7 +116,7 @@
 }
 
 .research .card .card-text {
-  @apply text-gray-700 text-xl leading-relaxed dark:text-gray-400;
+  @apply text-gray-700 text-xl leading-relaxed dark:text-gray-300;
 }
 
 .research .card .card-button {
@@ -129,10 +129,10 @@
 
 
 .publications .pub {
-  @apply my-4 sm:my-6 md:my-8;
+  @apply my-4 sm:my-6 md:my-10;
 }
 
-.publications a {
+.publications a, .research .card-text a {
   @apply text-blue-500 font-medium hover:underline hover:text-blue-600 transition duration-150 ease-in-out;
 }
 
@@ -141,13 +141,16 @@
 }
 
 .publications .pub .pub-authors {
-  @apply text-lg;
+  @apply text-lg mb-1;
 }
 
 .publications .pub .pub-authors .self-author {
   @apply font-bold dark:font-extrabold;
 }
 
+.publications .pub .pub-venue {
+  @apply text-base italic;
+}
 
 .music .music-item {
   @apply lg:flex;

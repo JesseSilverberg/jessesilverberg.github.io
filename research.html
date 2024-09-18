@@ -8,30 +8,52 @@ layout: default
   <div class="xl:mx-10">
   
     <h1 class="text-5xl md:text-6xl tracking-normal font-medium text-indigo-500 my-6 md:my-8">About</h1>
-    <p class="text-gray-700 dark:text-gray-300 text-xl leading-relaxed">I am currently pursuing an M.S. in Computer Science at Case Western Reserve University, where I am advised by Professor Soumya Ray. My broad interests include reinforcement learning, representation learning, and adversarial robustness.</p>
+    <p class="text-gray-700 dark:text-gray-300 text-xl leading-relaxed">I am currently pursuing an M.S. in Computer Science at Case Western Reserve University, where I am advised by Professor Soumya Ray. Currently, I'm working on investigating failure modes of reinforcement learning (RL), and looking at how to design more sample-efficient algorithms. More broadly, my interests include all things RL and adversarial ML.</p>
+    <div class="my-12 flex justify-center">
+      <div class="button">
+        <a href="{% link /img/Resume.pdf %}" target="_blank">
+          Resume </a>
+      </div>
+    </div>
 
     <h1 class="text-5xl md:text-6xl tracking-normal font-medium text-indigo-500 mt-12 md:mt-16">Recent Work</h1>
   </div>
 
-  <div class="grid grid-cols-1 xl:grid-cols-2">
-
-    
+  <div class="grid grid-cols-1 xl:grid-cols-2 mb-10">
 
     <div class="card">
       <div class="px-6 pt-4 pb-6">
-        <div class="card-header">Hierarchical Reinforcement Learning</div>
+        <div class="card-header">OPAC<sup>2</sup></div>
         <p class="card-text">
-          During the summer of 2022, I worked as a research intern at the Johns Hopkins University Applied Physics Laboratory, where I focused on meta-reinforcement learning. Specifically, I worked on designing and implementing a method of learning composable primitive policies end-to-end. The project is still under active development, with publication planned sometime in the next year. 
+          Most current off-policy RL algorithms for continuous actions spaces (e.g., SAC, TD3) have a policy update that explicitly maximizes the Q-function using the reparameterization trick. When this policy update appears in combination with a value update that uses bootstrapping, the learned values are often <em>overestimated</em>. The common fix is to learn two Q-functions and take the minimum, which conversely results in an <em>underestimation</em> bias. Typically, this balances the overestimation and yields decent performance. In this work, we demonstrate a class of scenarios in which this underestimation leads to a complete failure to learn. We also propose a novel off-policy actor-critic algorithm (OPAC<sup>2</sup>) that uses a stochastic policy gradient. We find that this approach doesn't suffer from the same estimation errors and significantly outperforms baseline approaches, all at no additional training cost. 
         </p>
+        <div class="inline-flex flex-row justify-center">
+          <div class="flex flex-col sm:flex-row sm:flex-wrap pb-6">
+            <div class="card-button">
+              <a target="_blank" href="https://openreview.net/pdf?id=kVq667T8CG">RLC 2024 ICBINB Workshop Paper</a>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
 
 
     <div class="card">
+      <div class="px-6 pt-4 pb-6">
+        <div class="card-header">DARPA ANSR</div>
+        <p class="card-text">
+          The DARPA <a href='https://www.darpa.mil/news-events/2023-09-25' target="_blank">Assured Neuro Symbolic Learning and Reasoning</a> (ANSR) program focuses on developing neuro-symbolic AI systems, defined as hybrid systems composed of symbolic reasoning components as well as learned neural components. One major goal is to produce assurance guarantees about the robustness of these systems. My role while working at <a href="https://www.jhuapl.edu/work/labs-and-facilities/intelligent-systems-center" target="_blank">JHU/APL</a> was to aid in designing new evaluation protocols, adversarial attacks, and red-teaming strategies for these new neuro-symbolic systems. This also includes a framework for evaluating the assurance guarantees.  Because the systems under test are composites of multiple components, the evaluations were designed to test individual components (e.g., vision, controllers) as well as the entire end-to-end system.
+        </p>
+      </div>
+    </div>
+
+    <div class="card">
       <div class="px-6 py-4">
         <div class="card-header">Active Logic</div>
         <p class="card-text">
-          I previously worked in a research laboratory at the University of Maryland Institute for Advanced Computer Studies studying artificial intelligence and metacognitive systems under the mentorship of Dr. Donald Perlis. 
+          This project focused on designing a robot agent that was explicitly aware of its own behaviors. Equipped with this knowledge, the agent could reason about its own past and current behaviors, enabling it to learn from prior mistakes and improve its performance over time. Our implementation and testing used two <a href="https://robots.ros.org/assets/img/robots/mobility-base/image.jpg" target="_blank">Baxter robots</a>.
+          This work was done at the Artificial Intelligence and Metacognition lab at the <a href="https://www.umiacs.umd.edu" target="_blank">University of Maryland Institute for Advanced Computer Studies</a>, under principal investigator Donald Perlis. 
         </p>
       </div>
       <div class="inline-flex flex-row justify-center">
@@ -52,11 +74,5 @@ layout: default
       </div>
     </div>
 
-  </div>
-  <div class="my-16 flex justify-center">
-    <div class="button">
-      <a href="{% link /img/Resume.pdf %}" target="_blank">
-        Resume/CV </a>
-    </div>
   </div>
 </div>
