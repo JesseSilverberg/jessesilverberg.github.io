@@ -19,17 +19,17 @@ if (now.getMonth() === 11) {
     snow.appendChild(snowflake);
   }
 
-  var toggle = document.createElement('div');
-  toggle.classList.add('snow-toggle');
-  toggle.innerHTML = `
-  <input type="checkbox" id="toggle1" class="toggle" onchange="toggleSnow(this)">
-    <div class="emoji"></div>
-    <label for="toggle1" class="well"></label>
-  `;
+  // var toggle = document.createElement('div');
+  // toggle.classList.add('snow-toggle');
+  // toggle.innerHTML = `
+  // <input type="checkbox" id="toggle1" class="toggle" onchange="toggleSnow(this)">
+  //   <div class="emoji"></div>
+  //   <label for="toggle1" class="well"></label>
+  // `;
 
 
-  document.getElementById('toggles').insertBefore(toggle,document.getElementById('toggles').childNodes[0]);
-  document.getElementById('toggles').classList.add('float-right', 'mx-8', 'my-6', 'flex', 'gap-8');
+  // document.getElementById('toggles').insertBefore(toggle,document.getElementById('toggles').childNodes[0]);
+  // document.getElementById('toggles').classList.add('float-right', 'mx-8', 'my-6', 'flex', 'gap-8');
 
   var styleEl = document.createElement('style');
   styleEl.innerText = `
