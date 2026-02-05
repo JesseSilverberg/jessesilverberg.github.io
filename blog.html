@@ -1,0 +1,62 @@
+---
+title: Blog
+layout: default
+permalink: /blog/
+---
+
+<div class="blog mx-6 sm:mx-10 md:mx-14 lg:mx-20 xl:mx-auto xl:w-11/12 py-5">
+  <div class="xl:mx-10">
+    <h1 class="text-5xl md:text-6xl tracking-normal font-medium text-indigo-500 my-6 md:my-8">Blog</h1>
+    <p class="text-gray-600 dark:text-gray-400 text-xl mb-12">Informal thoughts on research, random side projects, and
+      other things.</p>
+  </div>
+
+  <div class="xl:mx-10">
+    <ul class="divide-y divide-gray-200 dark:divide-zinc-800">
+      {% for post in site.posts %}
+      <li class="py-12">
+        <article class="flex flex-col space-y-2 xl:space-y-0 xl:grid xl:grid-cols-4 xl:items-baseline">
+          <dl>
+            <dt class="sr-only">Published on</dt>
+            <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+              <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %d, %Y" }}</time>
+            </dd>
+          </dl>
+          <div class="space-y-5 xl:col-span-3">
+            <div class="space-y-6">
+              <div>
+                <h2 class="text-3xl font-bold leading-8 tracking-tight">
+                  <a href="{{ post.url | relative_url }}"
+                    class="text-gray-900 dark:text-zinc-100 hover:text-indigo-500 dark:hover:text-indigo-400 transition duration-150">
+                    {{ post.title }}
+                  </a>
+                </h2>
+                {% if post.tags %}
+                <div class="flex flex-wrap mt-3">
+                  {% for tag in post.tags %}
+                  <span
+                    class="mr-3 text-sm font-medium uppercase text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400">
+                    {{ tag }}
+                  </span>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+              <div class="prose max-w-none text-gray-700 dark:text-zinc-400 text-lg leading-relaxed">
+                {{ post.excerpt | strip_html | truncatewords: 50 }}
+              </div>
+            </div>
+            <div class="text-base font-medium leading-6">
+              <a href="{{ post.url | relative_url }}"
+                class="text-indigo-500 hover:text-indigo-600 dark:hover:text-indigo-400 transition duration-150"
+                aria-label='Read "{{ post.title }}"'>
+                Read more &rarr;
+              </a>
+            </div>
+          </div>
+        </article>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+---
+layout: default
+---
+
+<article class="mx-auto max-w-3xl px-6 sm:px-10 py-5">
+  <div>
+    <header class="mb-12 md:mb-16 border-b border-gray-100 dark:border-zinc-800 pb-10">
+      <div class="space-y-1 text-center">
+        <dl class="space-y-10">
+          <div>
+            <dt class="sr-only">Published on</dt>
+            <dd class="text-base font-medium leading-6 text-gray-500 dark:text-gray-400">
+              <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %d, %Y" }}</time>
+            </dd>
+          </div>
+        </dl>
+        <div>
+          <h1
+            class="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-zinc-100 mb-4">
+            {{ page.title }}
+          </h1>
+          {% if page.author %}
+          <p class="text-lg font-medium text-indigo-500">{{ page.author }}</p>
+          {% endif %}
+        </div>
+      </div>
+    </header>
+
+
+
+    <div id="post-content"
+      class="prose dark:prose-invert lg:prose-xl max-w-none prose-indigo dark:prose-pre:bg-zinc-900 dark:prose-pre:border dark:prose-pre:border-zinc-800">
+      {{ content }}
+    </div>
+
+    <footer class="mt-20 pt-10 border-t border-gray-100 dark:border-zinc-800">
+      <div class="flex flex-col sm:flex-row justify-between items-center space-y-4 sm:space-y-0">
+        <a href="/blog/"
+          class="text-indigo-500 font-medium hover:text-indigo-700 dark:hover:text-indigo-400 transition duration-150 inline-flex items-center text-lg">
+          <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+          </svg>
+          Back to the blog
+        </a>
+      </div>
+    </footer>
+  </div>
+</article>
